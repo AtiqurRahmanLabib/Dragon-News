@@ -12,14 +12,14 @@ const RightSideNavBar = () => {
         <h1 className="text-[#403F3F] text-[20px] font-poppins font-semibold">Login With</h1>
 
         <div className="flex border-[2px] mt-7 rounded-2xl">
-          <button className="w-full h-10 text-blue-900 flex pl-[68px] items-center">
+          <button className="w-full h-10 text-blue-900 flex pl-[68px] items-center hover:bg-blue-600 rounded-2xl hover:text-white">
             <FaGoogle className="mr-2" />
             Login With Google
           </button>
         </div>
 
         <div className="flex border-[2px] mt-7 rounded-2xl">
-          <button className="w-full h-10 text-black flex pl-[68px] items-center">
+          <button className="w-full h-10 text-black flex pl-[68px] items-center hover:bg-white rounded-2xl hover:text-black">
             <FaGithub className="mr-2" />
             Login With GitHub
           </button>

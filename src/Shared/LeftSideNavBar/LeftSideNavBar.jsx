@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import newsJson from "../../../public/news.json";
 
 const LeftSideNavBar = () => {
 
@@ -7,12 +8,14 @@ const LeftSideNavBar = () => {
     const [categories, setCategories] = useState([]);
 
 
+
+
+
     useEffect(() => {
         fetch('categories.json')
             .then(res => res.json())
             .then(data => setCategories(data))
     })
-
     return (
         <div>
             <h1 className="text-[#403F3F] text-[20px] font-semibold font-poppins">All Cetogories</h1>
@@ -22,6 +25,10 @@ const LeftSideNavBar = () => {
                     key={categories.id}
                 >{categories.name}</Link>)
             }
+            {
+                <img src={newsJson.image_url} alt="" />
+            }
+
         </div>
     );
 };
