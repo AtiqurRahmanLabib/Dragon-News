@@ -5,7 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins:"'Poppins', sans-serif"
+      },
+    
+      backgroundImage: {
+        'custom-image': "url('./src/assets/Images/bg.png')",
+      },
+    },
   },
   plugins: [
     require('daisyui'),
