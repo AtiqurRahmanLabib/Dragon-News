@@ -11,7 +11,7 @@ const LeftSidebar = () => {
     return (
         <div>
             <h1 className='text-[20px]  text-[#403F3F] font-semibold font-poppins'>All Caterogy</h1>
-            <div className='mt-2 mx-auto'>
+            <div className='mt-2 mx-auto space-y-4'>
                 {
                     Caterogys.map(caterogy => <Link
                     key={caterogy.id}
