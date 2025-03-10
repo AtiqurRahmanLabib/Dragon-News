@@ -4,8 +4,12 @@ import Navbar from './Shared/Navbar';
 import Marquee from "react-fast-marquee";
 import LeftSidebar from './Shared/LeftSidebar';
 import RightSidebar from './Shared/RightSidebar';
+import { useLoaderData } from 'react-router-dom';
+import Anews from './Shared/News/Anews';
 
 const Home = () => {
+    const news = useLoaderData();
+    console.log(news)
     return (
         <div className='w-[1140px] mx-auto'>
             <Header></Header>
@@ -24,8 +28,16 @@ const Home = () => {
                 <div className=''>
                     <LeftSidebar></LeftSidebar>
                 </div>
-                <div className='boder col-span-2'>
-                    <h1>News Coming soon</h1>
+                <div className='col-span-2'>
+                    <h1 className='font-semibold font-poppins text-[20px] text-[#403F3F]'>Dragon News Home</h1>
+                    <div className='mx-auto'>
+                        {
+                            news.map(aNews => <Anews
+                            key={aNews._id}
+                            aNews={aNews}
+                            ></Anews>)
+                        }
+                    </div>
                 </div>
                 <div className=''>
                     <RightSidebar></RightSidebar>

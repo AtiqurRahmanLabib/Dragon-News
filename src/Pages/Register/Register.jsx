@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react';
 import Navbar from '../Home/Shared/Navbar';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 
 const Register = () => {
     const [error, setError] = useState('');
     const [suceess, setSuccess] = useState('')
-
+    const navigate = useNavigate()
     const { createUser } = useContext(AuthContext);
 
     const handleSubmit = (e) => {
@@ -24,6 +25,7 @@ const Register = () => {
             .then(result => {
                 console.log(result.user)
                 setSuccess('Account created suceessfullly')
+                navigate('/home')
             })
             .catch(error => {
                 console.error(error)

@@ -47,16 +47,17 @@ const Navbar = () => {
 
                 </div>
                 <div className="ml-[310px] flex">
-                    <img className="mr-5" src={profile} alt="" />
 
                     {
                         user ?
-                            <button onClick={handleSignOut} className="w-[140px] h-[44px] bg-[#403F3F] ">Sign Out</button>
+                            <div className="flex">
+                                <img className="mr-5" src={profile} alt="" />
+                                <button onClick={handleSignOut} className="w-[140px] h-[44px] bg-[#403F3F] font-semibold text-[20px] text-[#FFFFFF] ">Sign Out</button>
+                            </div>
                             :
                             <Link to="/login">
-                                <button className="w-[140px] h-[44px] bg-[#403F3F] ">Login</button>
+                                <button className="w-[140px] h-[44px] bg-[#403F3F] font-semibold text-[20px] text-[#FFFFFF]">Login</button>
                             </Link>
-
                     }
 
                 </div>
