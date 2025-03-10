@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Navbar from '../Home/Shared/Navbar';
 import { AuthContext } from '../../Providers/AuthProvider';
-import { useFormStatus } from 'react-dom';
 
 
 const Register = () => {
