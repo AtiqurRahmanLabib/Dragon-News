@@ -1,10 +1,35 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
 import Navbar from '../Home/Shared/Navbar';
+import { AuthContext } from '../../Providers/AuthProvider';
+import { useFormStatus } from 'react-dom';
+
 
 const Register = () => {
+    const [error, setError] = useState('');
+    const [suceess, setSuccess] = useState('')
+
+    const { createUser } = useContext(AuthContext);
+
     const handleSubmit = (e) => {
-        e.preventDeffault()
+        e.preventDefault()
+        setError('')
+        setSuccess('')
+        const form = new FormData(e.currentTarget)
+        const name = form.get('name');
+        const photo = form.get('photo');
+        const email = form.get('email');
+        const password = form.get('password');
+        console.log(name, photo, email, password)
+
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user)
+                setSuccess('Account created suceessfullly')
+            })
+            .catch(error => {
+                console.error(error)
+                setError(error.message)
+            })
     }
     return (
         <div>
@@ -19,7 +44,7 @@ const Register = () => {
                         <form onSubmit={handleSubmit}>
                             <div>
                                 <label htmlFor="Name" className="text-[#403F3F] font-semibold text-[20px] font-poppins">Your Name</label>
-                                <input className="w-[558px] h-[65px] bg-[#F3F3F3] rounded-[5px] text-[16px] text-[#9F9F9F] p-5 mt-2"
+                                <input className="w-[558px] h-[65px] bg-[#F3F3F3] rounded-[5px] text-[16px] p-5 mt-2"
                                     type="text"
                                     placeholder="Enter your name"
                                     name="name" />
@@ -27,32 +52,38 @@ const Register = () => {
 
                             <div className="mt-2">
                                 <label htmlFor="photoUrl" className="text-[#403F3F] font-semibold text-[20px] font-poppins ">Photo URL</label>
-                                <input className="w-[558px] h-[65px] bg-[#F3F3F3] rounded-[5px] text-[16px] text-[#9F9F9F] p-5 mt-2"
+                                <input className="w-[558px] h-[65px] bg-[#F3F3F3] rounded-[5px] text-[16px] p-5 mt-2"
                                     type="text"
                                     placeholder="Enter your photo url"
-                                    name="Photo" />
+                                    name="photo" />
                             </div>
                             <div className="mt-2">
                                 <label htmlFor="Email" className="text-[#403F3F] font-semibold text-[20px] font-poppins ">Email</label>
-                                <input className="w-[558px] h-[65px] bg-[#F3F3F3] rounded-[5px] text-[16px] text-[#9F9F9F] p-5 mt-2"
+                                <input className="w-[558px] h-[65px] bg-[#F3F3F3] rounded-[5px] text-[16px] p-5 mt-2"
                                     type="email"
                                     placeholder="Enter your email "
-                                    name="eamil" />
+                                    name="email" />
                             </div>
                             <div className="mt-2">
                                 <label htmlFor="Password" className="text-[#403F3F] font-semibold text-[20px] font-poppins ">Password</label>
-                                <input className="w-[558px] h-[65px] bg-[#F3F3F3] rounded-[5px] text-[16px] text-[#9F9F9F] p-5 mt-2"
+                                <input className="w-[558px] h-[65px] bg-[#F3F3F3] rounded-[5px] text-[16px]  p-5 mt-2"
                                     type="password"
                                     placeholder="Enter your email password"
                                     name="password" />
                             </div>
-                            
-                                <div className='mt-5'>
+
+                            <div className='mt-5'>
                                 <input type="checkbox" name="terms" id="" />
                                 <label className='ml-2 text-[#706F6F] text-[16px] font-poppins' htmlFor="terms">Accept Term & Conditions</label>
-                                </div>
-                            
+                            </div>
+
                             <button className="w-[558px] h-[65px] bg-[#403F3F]  mt-5 rounded-[5px] text-[20px] font-semibold font-poppins text-[#FFFFFF]" type="submit">Register</button>
+                            {
+                                error && <p className='text-1xl font-bold text-red-500 mt-2'>{error}</p>
+                            }
+                            {
+                                suceess && <p className='text-1xl font-bold text-green-500 mt-2'>{suceess}</p>
+                            }
                         </form>
                     </div>
                 </div>

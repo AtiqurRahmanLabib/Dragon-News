@@ -35,7 +35,7 @@ const LoginPage = () => {
                             </div>
                             <button className="w-[558px] h-[65px] bg-[#403F3F]  mt-5 rounded-[5px] text-[20px] font-semibold font-poppins text-[#FFFFFF]" type="submit">Login</button>
                         </form>
-                        <Link to="/registe"><p className="font-semibold font-poppins text-[16px] text-[#706F6F] text-center mt-5">Dont’t Have An Account ? <span className="font-semibold font-poppins text-[16px] bg-gradient-to-r from-[#FF8C47] to-[#F75B5F] text-transparent bg-clip-text">Register</span></p></Link>
+                        <Link to="/register"><p className="font-semibold font-poppins text-[16px] text-[#706F6F] text-center mt-5">Dont’t Have An Account ? <span className="font-semibold font-poppins text-[16px] bg-gradient-to-r from-[#FF8C47] to-[#F75B5F] text-transparent bg-clip-text">Register</span></p></Link>
                     </div>
                 </div>
             </div>
