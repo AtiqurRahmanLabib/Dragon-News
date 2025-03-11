@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaEye } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 const Anews = ({ aNews }) => {
-    const { author, title, thumbnail_url, details, rating, total_view } = aNews;
+    const { author, title, thumbnail_url, details, _id, rating, total_view } = aNews;
     return (
         <div className='mx-auto mt-2'>
             <div className='card-holder border rounded-[5px] border-[#E7E7E7]'>
@@ -35,7 +35,7 @@ const Anews = ({ aNews }) => {
                 <div className='deatails w-[518px] h-[130px] mt-5 mx-auto'>
                     {
                         details.length > 200 ?
-                            <p className='text-[16px] text-[#706F6F] font-poppins'>{details.slice(0, 210)} <br /> <Link className='text-orange-400 font-semibold'>Read more</Link></p> : <p>{details}</p>
+                            <p className='text-[16px] text-[#706F6F] font-poppins'>{details.slice(0, 210)} <br /> <Link to={`/newDetails/${_id}`} className='text-orange-400 font-semibold'>Read more</Link></p> : <p>{details}</p>
                     }
                 </div>
 
@@ -43,7 +43,7 @@ const Anews = ({ aNews }) => {
 
                 <div className='view&rateHolder flex justify-between w-[518px] mx-auto mt-2 '>
                     <div className='Rating flex items-center gap-2'>
-                        <CiStar className='text-1.5xl'/>
+                        <CiStar className='text-1.5xl' />
                         <p className='text-[16px] font-medium text-[#706F6F]'>{rating.number}</p>
                     </div>
                     <div className='totalViews flex items-center gap-2'>
